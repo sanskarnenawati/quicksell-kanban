@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+/* General Reset */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.kanban-board {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+  height: calc(100vh - 60px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Column Styles */
+.columns {
+  display: flex;
+  gap: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.column {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.column-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Card Styles */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin: 10px;
+  padding: 15px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+.card .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #555;
+}
+
+/* Tag Styles */
+.tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  background-color: #e9ecef;
+  color: #495057;
+  border-radius: 12px;
+}
+
+/* Dropdown Menu */
+.header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.header select {
+  padding: 6px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.header label {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+/* Priority Colors */
+.priority.high {
+  color: #dc3545; /* Red */
+}
+
+.priority.medium {
+  color: #ffc107; /* Yellow */
+}
+
+.priority.low {
+  color: #28a745; /* Green */
+}
+
+.priority.no-priority {
+  color: #6c757d; /* Gray */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .kanban-board {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .column {
+    width: 100%;
+    min-width: unset;
   }
 }
