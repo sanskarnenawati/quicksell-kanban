@@ -2,16 +2,16 @@ import React from 'react';
 import Card from './Card';
 import addIcon from '../assets/icons/add.svg';
 import menuIcon from '../assets/icons/3 dot menu.svg';
-import nop from "../assets/icons/No-priority.svg"
+import nop from "../assets/icons/no-priority.svg"
 import hp from "../assets/icons/Img - High Priority.svg"
 import mp from "../assets/icons/Img - Medium Priority.svg"
 import lp from "../assets/icons/Img - Low Priority.svg"
-import up from "../assets/icons/SVG - Urgent Priority grey.svg"
-import todo from "../assets/icons/To-do.svg"
+import upc from "../assets/icons/SVG - Urgent Priority colour.svg"
+import todo from "../assets/icons/to-do.svg"
 import inprogress from "../assets/icons/in-progress.svg"
-import done from "../assets/icons/Done.svg"
-import backlog from "../assets/icons/Backlog.svg"
-import cancel from "../assets/icons/Cancelled.svg"
+import done from "../assets/icons/done.svg"
+import backlog from "../assets/icons/backlog.svg"
+import cancel from "../assets/icons/cancelled.svg"
 import pfp from "../assets/icons/Default_pfp.svg"
 
 function Column({ title, tickets, groupBy }) {
@@ -36,7 +36,7 @@ function Column({ title, tickets, groupBy }) {
   const getPriority = (priority) => {
     switch (priority) {
       case '4':
-        return up;
+        return upc;
       case '3':
         return hp;
       case '2':

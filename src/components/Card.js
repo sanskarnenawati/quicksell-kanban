@@ -1,6 +1,6 @@
 import React from 'react';
-import todo from "../assets/icons/To-do.svg"
-import nop from "../assets/icons/No-priority.svg"
+import todo from "../assets/icons/to-do.svg"
+import nop from "../assets/icons/no-priority.svg"
 import hp from "../assets/icons/Img - High Priority.svg"
 import mp from "../assets/icons/Img - Medium Priority.svg"
 import lp from "../assets/icons/Img - Low Priority.svg"
