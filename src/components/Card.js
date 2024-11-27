@@ -1,31 +1,27 @@
 import React from 'react';
+import todo from "../assets/icons/To-do.svg"
+import nop from "../assets/icons/No-priority.svg"
+import hp from "../assets/icons/Img - High Priority.svg"
+import mp from "../assets/icons/Img - Medium Priority.svg"
+import lp from "../assets/icons/Img - Low Priority.svg"
+import up from "../assets/icons/SVG - Urgent Priority grey.svg"
+import pfp from "../assets/icons/Default_pfp.svg"
 
-function Card({ ticket }) {
-  const getPriorityClass = (priority) => {
+
+function Card({ ticket, groupBy }) {
+
+  const getPriority = (priority) => {
     switch (priority) {
       case 4:
-        return 'priority high';
+        return up;
       case 3:
-        return 'priority medium';
+        return hp;
       case 2:
-        return 'priority low';
-      default:
-        return 'priority no-priority';
-    }
-  };
-
-  const getPriorityLabel = (priority) => {
-    switch (priority) {
-      case 4:
-        return 'Urgent';
-      case 3:
-        return 'High';
-      case 2:
-        return 'Medium';
+        return mp;
       case 1:
-        return 'Low';
+        return lp;
       case 0:
-        return 'No Priority';
+        return nop;
       default:
         return 'Unknown';
     }
@@ -33,11 +29,20 @@ function Card({ ticket }) {
 
   return (
     <div className="card">
+      <div className='card-head'>
+        <h3 className='card-id'>{ticket.id}</h3>
+        <img src={pfp} alt='img' height='20px' width='20px' />
+      </div>
       <h3>{ticket.title}</h3>
       <div className="meta">
-        <span className="tag">{ticket.tag[0]}</span>
-        <span className={getPriorityClass(ticket.priority)}>
-          Priority: {getPriorityLabel(ticket.priority)}
+        {groupBy === 'priority' ? <></> : <div className='card-p-img'>
+          <img src={getPriority(ticket.priority)} alt={getPriority(ticket.priority)} />
+        </div>}
+        <span className="">
+          <div className='tag'>
+            <img src={todo} alt='icon' />
+            {ticket.tag[0]}
+          </div>
         </span>
       </div>
     </div>

@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { fetchTickets } from '../utils/api';
 import { saveViewState, loadViewState } from '../utils/storage';
@@ -15,8 +17,22 @@ function KanbanBoard() {
     const loadTickets = async () => {
       try {
         const data = await fetchTickets();
-        console.log('API Response:', data); // Debug the API response
-        setTickets(Array.isArray(data.tickets) ? data.tickets : []); // Extract tickets array
+        console.log('API Response:', data); 
+
+        
+        if (Array.isArray(data.tickets) && Array.isArray(data.users)) {
+          const enrichedTickets = data.tickets.map((ticket) => {
+            const user = data.users.find((user) => user.id === ticket.userId);
+            return {
+              ...ticket,
+              userName: user ? user.name : 'Unknown',
+              userAvailable: user ? user.available : false,
+            };
+          });
+          setTickets(enrichedTickets);
+        } else {
+          setTickets([]);
+        }
       } catch (error) {
         console.error('Failed to load tickets:', error);
         setError('Unable to load tickets. Please try again later.');
@@ -43,6 +59,7 @@ function KanbanBoard() {
     return <p className="empty-message">No tickets to display.</p>;
   }
 
+  
   const groupedTickets = tickets.reduce((acc, ticket) => {
     const key = ticket[groupBy];
     if (!acc[key]) acc[key] = [];
@@ -50,8 +67,9 @@ function KanbanBoard() {
     return acc;
   }, {});
 
-  console.log('Grouped Tickets:', groupedTickets); // Debug grouped tickets
+  console.log('Grouped Tickets:', groupedTickets); 
 
+  
   Object.keys(groupedTickets).forEach((key) => {
     groupedTickets[key].sort((a, b) => {
       if (sortBy === 'priority') return b.priority - a.priority;
@@ -65,7 +83,7 @@ function KanbanBoard() {
       <Header groupBy={groupBy} setGroupBy={setGroupBy} sortBy={sortBy} setSortBy={setSortBy} />
       <div className="columns">
         {Object.keys(groupedTickets).map((key) => (
-          <Column key={key} title={key} tickets={groupedTickets[key]} />
+          <Column key={key} title={key} tickets={groupedTickets[key]} groupBy={groupBy} />
         ))}
       </div>
     </div>
