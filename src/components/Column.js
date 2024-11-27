@@ -88,7 +88,7 @@ function Column({ title, tickets, groupBy }) {
     if (groupBy === 'userId') {
       return (
         <div className="column-header-title">
-          <img src={pfp} height='23px'/> 
+          <img src={pfp} height='23px' alt='img' /> 
           {tickets[0]?.userName || 'Unknown User'}
           <div>{tickets.length}</div>
         </div>
@@ -96,7 +96,7 @@ function Column({ title, tickets, groupBy }) {
     } else if (groupBy === 'status') {
       return (
         <div className="column-header-title">
-          <img src={getStatus(title)} /> 
+          <img src={getStatus(title)} alt='img' /> 
           {getStatusLabel(title)}
           <div>{tickets.length}</div>
         </div>
@@ -104,7 +104,7 @@ function Column({ title, tickets, groupBy }) {
     } else if (groupBy === 'priority') {
       return (
         <div className="column-header-title">
-          <img src={getPriority(title)} /> 
+          <img src={getPriority(title)} alt='img' /> 
           {getPriorityLabel(title)}
           <div>{tickets.length}</div>
         </div>
