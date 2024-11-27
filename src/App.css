@@ -1,4 +1,4 @@
-/* General Reset */
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -13,7 +13,7 @@ body {
   height: calc(100vh - 60px);
 }
 
-/* Column Styles */
+
 .columns {
   display: flex;
   gap: 20px;
@@ -38,7 +38,7 @@ body {
   border-bottom: 1px solid #e0e0e0;
 }
 
-/* Card Styles */
+
 .card {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -70,7 +70,7 @@ body {
   color: #555;
 }
 
-/* Tag Styles */
+
 .tag {
   font-size: 11px;
   padding: 2px 8px;
@@ -79,7 +79,7 @@ body {
   border-radius: 12px;
 }
 
-/* Dropdown Menu */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -100,24 +100,23 @@ body {
   margin-right: 5px;
 }
 
-/* Priority Colors */
+
 .priority.high {
-  color: #dc3545; /* Red */
+  color: #dc3545; 
 }
 
 .priority.medium {
-  color: #ffc107; /* Yellow */
+  color: #ffc107; 
 }
 
 .priority.low {
-  color: #28a745; /* Green */
+  color: #28a745; 
 }
 
 .priority.no-priority {
-  color: #6c757d; /* Gray */
+  color: #6c757d; 
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .kanban-board {
     flex-direction: column;
