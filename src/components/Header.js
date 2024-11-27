@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as DisplayIcon } from '../assets/icons/Display.svg';
+import { ReactComponent as DisplayIcon } from '../assets/icons/display.svg';
 import downArrow from "../assets/icons/down.svg"
 
 function Header({ groupBy, setGroupBy, sortBy, setSortBy }) {
